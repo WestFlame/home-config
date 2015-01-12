@@ -1,0 +1,16 @@
+[user]
+	name = xxx
+	email = xxx@mail.com
+[color]
+	ui = auto
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	st = status
+	cf = config
+	last = log -1 HEAD
+[push]
+	default = simple
+[core]
+	editor = nano
