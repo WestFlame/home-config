@@ -1,0 +1,21 @@
+#!/bin/sh
+
+create_directories () {
+    DIRS="workspace
+    programs
+    sources"
+
+    for DIR in $DIRS; do
+        mkdir "$DIR"
+    done
+
+}
+
+cd ~/.repos
+git clone --recursive git@github.com:WestFlame/zsh-antigen.git
+
+cd ~
+create_directories
+ln -s ~/.repos/home-config/gitconfig .gitconfig
+ln -s ~/.repos/home-config/tmux.conf .tmux.conf
+ln -s ~/.repos/zsh-antigen/zshrc .zshrc
