@@ -1,0 +1,58 @@
+#!/bin/sh
+
+prepare_boost () {
+    cd ~/sources
+
+    sudo aptitude install libbz2-dev zlib1g-dev libicu-dev python3-dev
+
+    wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.bz2
+    tar xjf boost_1_57_0.tar.bz2
+
+    cd boost_1_57_0
+    ./bootstrap.sh
+    sed -i 's/^using python : .\.. : \/usr ;/using python : 3.4 : \/usr ;/' project-config.jam 
+    ./b2 install --prefix=$HOME/local
+}
+
+prepare_opencv () {
+    cd ~/sources
+
+    sudo aptitude install libeigen3-dev
+
+    wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.9/opencv-2.4.9.zip
+    unzip opencv-2.4.9.zip
+
+    cd opencv
+    mkdir build-Release; cd build-Release
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/local
+    make
+    make install
+}
+
+prepare_clion () {
+    cd ~/programs
+    wget http://download.jetbrains.com/cpp/clion-140.1221.2.tar.gz
+    tar xzf clion-140.1221.2.tar.gz
+    mv clion-140.1221.2 clion
+}
+
+
+#echo "Should I prepare CLion?"
+#select yn in "Yes" "No"; do
+#    case $yn in
+#        Yes ) prepare_clion; break;;
+#        No ) exit;;
+#    esac
+#done
+
+while true; do
+    read -p "Should I prepare CLion?" yn
+    case $yn in
+        [Yy]* ) prepare_clion; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+prepare_boost
+prepare_opencv
