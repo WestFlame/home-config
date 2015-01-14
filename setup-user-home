@@ -13,6 +13,9 @@ create_directories () {
 
 cd ~/.repos
 git clone --recursive git@github.com:WestFlame/zsh-antigen.git
+git clone https://github.com/powerline/fonts powerline-fonts
+
+cd powerline-fonts; ./install.sh; cd ..
 
 cd ~
 create_directories
