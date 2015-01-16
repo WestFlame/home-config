@@ -23,7 +23,7 @@ install_packages () {
     su -
     apt-get install aptitude
     aptitude install zsh tmux
-    aptitude install build-essential git cmake cmake-curses-gui
+    aptitude install build-essential git tig cmake cmake-curses-gui
     aptitude install python3 python3-pip python3-numpy
 
     aptitude install libyaml-dev
