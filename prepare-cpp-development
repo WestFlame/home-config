@@ -29,6 +29,21 @@ prepare_opencv () {
     make install
 }
 
+prepare_arma () {
+    cd ~/sources
+
+    sudo aptitude install libopenblas-dev liblapack-dev libarpack2-dev
+
+    wget http://sourceforge.net/projects/arma/files/armadillo-4.600.2.tar.gz
+    tar xzf armadillo-4.600.2.tar.gz
+
+    cd armadillo-4.600.2
+    mkdir build-Release; cd build-Release
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/local
+    make
+    make install
+}
+
 prepare_clion () {
     cd ~/programs
     wget http://download.jetbrains.com/cpp/clion-140.1221.2.tar.gz
@@ -46,13 +61,14 @@ prepare_clion () {
 #done
 
 while true; do
-    read -p "Should I prepare CLion?" yn
+    read -p "Should I prepare CLion? " yn
     case $yn in
         [Yy]* ) prepare_clion; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
 prepare_boost
 prepare_opencv
+prepare_arma
