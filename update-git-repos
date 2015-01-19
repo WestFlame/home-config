@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#REPOS=`echo iris*`
+
+#for i in $REPOS
+#do
+#  cd $i
+#  git pull
+#  cd ..
+#done
+
+DIRS=`echo *`
+
+for i in $DIRS
+do
+  if [ -d "$i/.git" ]; then
+    cd $i
+    git pull
+    cd ..
+  fi
+done
