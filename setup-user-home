@@ -17,6 +17,7 @@ create_symlinks () {
     ln -s ~/.repos/home-config/update-git-repos ~/.repos/update-git-repos
     ln -s ~/.repos/home-config/gitconfig .gitconfig
     ln -s ~/.repos/home-config/tmux.conf .tmux.conf
+    ln -s ~/.repos/home-config/tmuxp .tmuxp
     ln -s ~/.repos/zsh-antigen/zshrc .zshrc
 }
 

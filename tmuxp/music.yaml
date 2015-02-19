@@ -1,0 +1,12 @@
+session_name: music
+windows:
+- focus: 'true'
+  layout: even-horizontal
+  root: ~
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command:
+    - mocp
+    focus: true
+  - null

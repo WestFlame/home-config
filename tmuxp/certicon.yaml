@@ -1,0 +1,23 @@
+session_name: default
+windows:
+- layout: ce7e,180x39,0,0,1
+  panes:
+  - pane
+  focus: true
+  start_directory: /home/miki/workspace/ario-git
+- layout: ce7f,180x39,0,0,2
+  panes:
+  - pane
+  start_directory: "/home/miki/Sta\u017Een\xE9"
+- layout: ce80,180x39,0,0,3
+  panes:
+  - pane
+  start_directory: /home/miki/.repos/zsh-antigen
+- layout: ce81,180x39,0,0,4
+  panes:
+  - pane
+  start_directory: /home/miki
+- layout: ce82,180x39,0,0,5
+  panes:
+  - pane
+  start_directory: /home/miki/programy
