@@ -19,7 +19,7 @@ create_symlinks () {
     ln -s ~/.repos/home-config/tmux.conf .tmux.conf
     ln -s ~/.repos/home-config/tmuxp .tmuxp
     ln -s ~/.repos/zsh-antigen/zshrc .zshrc
-    ln -s ~/.repos/zsh-antigen/zprofile .zprofile
+    ln -s ~/.repos/zsh-antigen/zshenv .zshenv
 }
 
 install_packages () {
