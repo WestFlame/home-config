@@ -5,12 +5,12 @@ prepare_boost () {
 
     sudo aptitude install libbz2-dev zlib1g-dev libicu-dev python3-dev
 
-    wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.bz2
-    tar xjf boost_1_57_0.tar.bz2
+    wget http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.bz2
+    tar xjf boost_1_58_0.tar.bz2
 
-    cd boost_1_57_0
+    cd boost_1_58_0
     ./bootstrap.sh
-    sed -i 's/^using python : .\.. : \/usr ;/using python : 3.4 : \/usr ;/' project-config.jam 
+    sed -i 's/^using python : .\.. : \/usr ;/using python : 3.4 : \/usr ;/' project-config.jam
     ./b2 install --prefix=$HOME/local
 }
 
@@ -19,12 +19,12 @@ prepare_opencv () {
 
     sudo aptitude install libeigen3-dev
 
-    wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.9/opencv-2.4.9.zip
-    unzip opencv-2.4.9.zip
+    wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.11/opencv-2.4.11.zip
+    unzip opencv-2.4.11.zip
 
-    cd opencv
+    cd opencv-2.4.11
     mkdir build-Release; cd build-Release
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/local
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/local -DBUILD_DOCS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_TESTS=OFF
     make
     make install
 }
@@ -34,10 +34,10 @@ prepare_arma () {
 
     sudo aptitude install libopenblas-dev liblapack-dev libarpack2-dev
 
-    wget http://sourceforge.net/projects/arma/files/armadillo-4.600.2.tar.gz
-    tar xzf armadillo-4.600.2.tar.gz
+    wget http://sourceforge.net/projects/arma/files/armadillo-5.000.1.tar.gz
+    tar xzf armadillo-5.000.1.tar.gz
 
-    cd armadillo-4.600.2
+    cd armadillo-5.000.1
     mkdir build-Release; cd build-Release
     cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/local
     make
@@ -46,9 +46,9 @@ prepare_arma () {
 
 prepare_clion () {
     cd ~/programs
-    wget http://download.jetbrains.com/cpp/clion-140.1221.2.tar.gz
-    tar xzf clion-140.1221.2.tar.gz
-    mv clion-140.1221.2 clion
+    wget http://download.jetbrains.com/cpp/clion-1.0.tar.gz
+    tar xzf clion-1.0.tar.gz
+    mv clion-1.0 clion
 }
 
 
@@ -61,7 +61,7 @@ prepare_clion () {
 #done
 
 while true; do
-    read -p "Should I prepare CLion? " yn
+    read -p "Should I prepare CLion? [yn]: " yn
     case $yn in
         [Yy]* ) prepare_clion; break;;
         [Nn]* ) break;;
