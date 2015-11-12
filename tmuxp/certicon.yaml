@@ -4,7 +4,7 @@ windows:
   panes:
   - pane
   focus: true
-  start_directory: /home/miki/workspace/simig
+  start_directory: /home/miki/workspace
 - layout: ce7f,180x39,0,0,2
   panes:
   - pane
