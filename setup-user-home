@@ -32,6 +32,8 @@ install_packages () {
 
     sudo aptitude install libyaml-dev
     #sudo pip3 install tmuxp
+
+    mkdir -p ~/.tmux/plugins/tpm/tpm
     exit
 }
 
