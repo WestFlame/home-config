@@ -14,3 +14,5 @@
 	default = simple
 [core]
 	editor = nano
+[credential]
+        helper = cache
