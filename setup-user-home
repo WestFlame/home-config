@@ -39,10 +39,10 @@ install_packages () {
 
 cd ~/.repos
 git clone --recursive git@github.com:WestFlame/zsh-antigen.git
-git clone git@github.com:powerline/fonts powerline-fonts
-git clone git@github.com:altercation/solarized
-git clone git@github.com:Anthony25/gnome-terminal-colors-solarized.git
-git clone git@github.com:jkaving/intellij-colors-solarized.git
+git clone https://github.com/powerline/fonts.git powerline-fonts
+git clone https://github.com/altercation/solarized
+git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+git clone https://github.com/jkaving/intellij-colors-solarized.git
 
 cd powerline-fonts; ./install.sh; cd ..
 
