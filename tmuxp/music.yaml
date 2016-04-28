@@ -10,4 +10,4 @@ windows:
     - mocp
     focus: true
   - shell_command:
-    - cd Videa
+    - cd Videos
