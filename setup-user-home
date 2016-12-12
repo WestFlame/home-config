@@ -26,7 +26,9 @@ create_symlinks () {
 
 install_packages () {
     sudo apt install zsh tmux aptitude
-    sudo apt install build-essential git tig cmake cmake-curses-gui
+    sudo apt install build-essential curl git
+    sudo apt install tig cmake cmake-curses-gui
+    sudo apt install ruby
 
     mkdir -p ~/.tmux/plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -38,6 +40,11 @@ install_python () {
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 }
 
+cd ~
+create_directories
+install_packages
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 
 cd ~/.repos
 git clone https://github.com/zsh-users/antigen.git antigen
@@ -46,11 +53,8 @@ git clone https://github.com/powerline/fonts.git powerline-fonts
 git clone https://github.com/altercation/solarized
 git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
 git clone https://github.com/jkaving/intellij-colors-solarized.git
-
 cd powerline-fonts; ./install.sh; cd ..
 
 cd ~
-create_directories
 create_symlinks
 
-install_packages

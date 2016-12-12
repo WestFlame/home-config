@@ -1,9 +1,7 @@
 session_name: tapeta
 windows:
 - layout: main-horizontal
-  shell_command_before:
-    - cd ~/
   panes:
-    - pane
-    - pane
-    - pane
+    - null
+    - null
+    - htop
