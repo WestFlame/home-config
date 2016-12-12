@@ -20,26 +20,28 @@ create_symlinks () {
     ln -s ~/.repos/home-config/gitconfig .gitconfig
     ln -s ~/.repos/home-config/tmux.conf .tmux.conf
     ln -s ~/.repos/home-config/tmuxp .tmuxp
-    ln -s ~/.repos/zsh-antigen/zshrc .zshrc
-    ln -s ~/.repos/zsh-antigen/zshenv .zshenv
+    ln -s ~/.repos/zsh-config/zshrc .zshrc
+    ln -s ~/.repos/zsh-config/zshenv .zshenv
 }
 
 install_packages () {
-    sudo apt-get install aptitude
-    sudo aptitude install zsh tmux
-    sudo aptitude install build-essential git tig cmake cmake-curses-gui
-    sudo aptitude install python3 python3-pip
-
-    sudo aptitude install libyaml-dev
-    #sudo pip3 install tmuxp
+    sudo apt install zsh tmux aptitude
+    sudo apt install build-essential git tig cmake cmake-curses-gui
 
     mkdir -p ~/.tmux/plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     exit
 }
 
+install_python () {
+    cd ~/programs
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+}
+
+
 cd ~/.repos
-git clone --recursive git@github.com:WestFlame/zsh-antigen.git
+git clone https://github.com/zsh-users/antigen.git antigen
+git clone https://github.com/WestFlame/zsh-config.git
 git clone https://github.com/powerline/fonts.git powerline-fonts
 git clone https://github.com/altercation/solarized
 git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
